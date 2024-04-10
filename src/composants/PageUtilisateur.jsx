@@ -1,4 +1,4 @@
-import './Appli.scss';
+import './PageUtilisateur.scss';
 
 import Entete from './Entete';
 import ListeDossiers from './ListeDossiers';
@@ -8,7 +8,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useEffect, useState } from 'react';
 
-export default function Appli() {
+export default function PageUtilisateur({user}) {
   // État pour gérer les dossiers
   const [dossiers, setDossiers] = useState(
     () => JSON.parse(window.localStorage.getItem('signets')) || []
@@ -40,7 +40,7 @@ export default function Appli() {
 
   return (
     <div className="Appli">
-        <Entete />
+        <Entete user={user}/>
         <section className="contenu-principal">
           <ListeDossiers 
             dossiers={dossiers} 

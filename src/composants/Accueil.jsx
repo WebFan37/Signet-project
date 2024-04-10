@@ -1,6 +1,16 @@
 import './Accueil.scss';
 import logo from '../images/signets-logo.png';
-import boutonGoogle from '../images/btn-connexion-google.png'
+import boutonGoogle from '../images/btn-connexion-google.png';
+import {connexion} from '../code/user-model';
+
+
+// //import Google authentification and provider from firebase
+// import {authentification, provider} from '../code/initialisation';
+
+// //Import Sign in with popup
+// import { signInWithPopup } from 'firebase/auth';
+
+
 
 function Accueil(){
 
@@ -17,7 +27,7 @@ function Accueil(){
 
             <section className='Connexion'>
                 <h2>Connexion à signets</h2>
-                <div className="bouton-Google">
+                <div className="bouton-Google" onClick={connexion}>
                     <img src={boutonGoogle} alt="bouton connexion bouton"/>
                     Connexion avec Google
                 </div>
