@@ -3,9 +3,9 @@ import './Appli.scss';
 import Accueil from './Accueil.jsx';
 import PageUtilisateur from './PageUtilisateur.jsx';
 import { useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+import { observerEtatConnexion } from '../code/user-model';
 import { useEffect } from 'react';
-import { authentification } from '../code/initialisation.js';
+
 
 
 export default function Appli() {
@@ -13,7 +13,7 @@ export default function Appli() {
   const [utilisateur, setUtilisateur] = useState(null);
 
   useEffect(
-    () => onAuthStateChanged(authentification, u => setUtilisateur(u))
+    () => observerEtatConnexion(setUtilisateur)
     ,
     []
   )
