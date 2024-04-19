@@ -10,7 +10,7 @@ import { collectionFile, collectionUser, firestore } from "./initialisation";
  * @returns {Promise string} identifiant du dossier cree
  */
 export async function createFolder(idUser, infoDossier) {
-    const refFile = doc(collection(firestore, collectionUser, idUser, collectionFile));
+    const referenceFile = doc(collection(firestore, collectionUser, idUser, collectionFile));
     await setDoc(refFile, infoDossier);
-    return refFile.id;
+    return referenceFile.id;
 }

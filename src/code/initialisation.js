@@ -6,7 +6,7 @@ import objectConfig from './firebase-config.js';
 //Initialize app
 import {initializeApp} from 'firebase/app';
 
-//Import authentification
+//Import authentification and get authentification
 import {getAuth,GoogleAuthProvider} from 'firebase/auth';
 
 //DAY 2 
