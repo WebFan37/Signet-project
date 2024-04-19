@@ -11,6 +11,6 @@ import { collectionFile, collectionUser, firestore } from "./initialisation";
  */
 export async function createFolder(idUser, infoDossier) {
     const referenceFile = doc(collection(firestore, collectionUser, idUser, collectionFile));
-    await setDoc(refFile, infoDossier);
+    await setDoc(referenceFile, infoDossier);
     return referenceFile.id;
 }
