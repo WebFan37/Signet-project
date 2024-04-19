@@ -12,7 +12,7 @@ function FrmDossier({ouvert, setOuvert, actionDossier, dossierPrec=null}) {
   const [couverture, setCouverture] = useState(dossierPrec?dossierPrec.couverture:"");
   const [couleur, setCouleur] = useState(dossierPrec?dossierPrec.couleur:"#000");
 
-  console.log("Les valeurs du formulaire : ", titre, couverture, couleur);
+  // console.log("Les valeurs du formulaire : ", titre, couverture, couleur);
 
   function gererFermer() {
     if(!dossierPrec) {

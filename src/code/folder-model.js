@@ -1,4 +1,4 @@
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import { info } from "sass";
 import { collectionFile, collectionUser, firestore } from "./initialisation";
 
@@ -13,4 +13,20 @@ export async function createFolder(idUser, infoDossier) {
     const referenceFile = doc(collection(firestore, collectionUser, idUser, collectionFile));
     await setDoc(referenceFile, infoDossier);
     return referenceFile.id;
+}
+
+
+/***
+ * Lire TOUS les dossier de l'utilisateur 
+ * Tous les informations
+ * 
+ * @param {string } idUser identifiant de l'utilisateur
+ * 
+ * @returns {array} Tableau contenant tous le sdossiers de cet utilisateur.
+ * 
+ */
+export async function readAll(idUser){
+    const AllFiles = await getDocs(query(collection(firestore, collectionUser, idUser, collectionFile)))
+        return AllFiles.docs;
+    
 }

@@ -7,7 +7,7 @@ import FrmDossier from './FrmDossier';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useEffect, useState } from 'react';
-import { createFolder } from '../code/folder-model';
+import { createFolder, readAll } from '../code/folder-model';
 
 export default function PageUtilisateur({user}) {
   // État pour gérer les dossiers
@@ -23,6 +23,26 @@ export default function PageUtilisateur({user}) {
 
   // État d'affichage du formulaire d'ajout de dossier 
   const [frmDossierOuvert, setFrmDossierOuvert] = useState(false);
+
+  //Appel de la fonction pour lire les dossiers de facon controle
+  // Lire seulement une fois
+  useEffect(() => readLireFolders,[])
+  //!!!!! 1) {readLireFolders()} vs 2) readLireFolders
+  // 2) appeler une fois
+  // 1) appeler a chaque rendu
+
+
+  // Lire les dossiers de l'utilisateur
+  async function readLireFolders(){
+    const dosserisFirestore = await readAll(user.uid);
+    // console.log("Message",dosserisFirestore);
+    // console.log("Contenu",dosserisFirestore[0].data());
+    // console.log("identity",dosserisFirestore[0].id);
+    setDossiers(dosserisFirestore.map(
+      dossierFS => ({id: dossierFS.id, ...dossierFS.data()})
+    ))
+  }
+  
 
   /**
    * Ajoute un dossier
