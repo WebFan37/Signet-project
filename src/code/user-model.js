@@ -51,7 +51,8 @@ export function observerEtatConnexion(mutateurUtil) {
                             {merge: true}
                         )
                         }
-                        mutateurUtil(u)
+                        mutateurUtil(u);
+                        console.log("Utilisateur connecté (objet retourn/ par Google Provider):", u);
                       }
     );
   }

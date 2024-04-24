@@ -26,7 +26,7 @@ export default function PageUtilisateur({user}) {
 
   //Appel de la fonction pour lire les dossiers de facon controle
   // Lire seulement une fois
-  useEffect(() => readLireFolders,[])
+  useEffect(() => {readLireFolders();},[])
   //!!!!! 1) {readLireFolders()} vs 2) readLireFolders
   // 2) appeler une fois
   // 1) appeler a chaque rendu
@@ -67,6 +67,7 @@ export default function PageUtilisateur({user}) {
           <ListeDossiers 
             dossiers={dossiers} 
             setDossiers={setDossiers} 
+            idUser={user.uid}
           />
           <FrmDossier 
             ouvert={frmDossierOuvert} 

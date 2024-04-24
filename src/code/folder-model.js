@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, query, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, query, setDoc, updateDoc } from "firebase/firestore";
 import { info } from "sass";
 import { collectionFile, collectionUser, firestore } from "./initialisation";
 
@@ -29,4 +29,25 @@ export async function readAll(idUser){
     const AllFiles = await getDocs(query(collection(firestore, collectionUser, idUser, collectionFile)))
         return AllFiles.docs;
     
+}
+
+/***
+ * Supprimer un dossier
+ * @param {string} idUser identifiant de l'utilisateur
+ * @param {string} idDossier identifiant du dossier
+ * 
+ */
+export async function supprimer(idUser, idDossier){
+    const refDossier = doc(firestore, collectionUser, idUser, collectionFile, idDossier); 
+    await deleteDoc(refDossier);
+}   
+
+/***
+ * Mettre a jour un dossier
+ * @param {string} idUser identifiant de l'utilisateur
+ * @param {string} idDossier identifiant du dossier
+ */
+export async function update(idUser, idDossier, infoDossier){
+    const refDossier = doc(firestore, collectionUser, idUser, collectionFile, idDossier);
+    await updateDoc(refDossier, infoDossier)
 }
