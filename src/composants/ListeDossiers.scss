@@ -9,5 +9,12 @@
 
   .aucun-dossier {
     font-size: 1.5rem;
+    width: 400px;
+    height: 60px;
+    background-color: bisque;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

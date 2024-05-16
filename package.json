@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
-    "firebase": "^10.10.0",
+    "firebase": "^10.11.1",
     "firebase-tools": "^13.7.5",
     "framer-motion": "^11.0.20",
     "react": "^18.2.0",

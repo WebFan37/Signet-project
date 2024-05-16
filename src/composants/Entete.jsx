@@ -6,7 +6,7 @@ import { deconnexion } from '../code/user-model';
 export default function Entete({user}) {
   return (
     <header className="Entete">
-      <div className="logo">Signets</div>
+      <div className="logo">Top 3 Signets</div>
       <div className="utilisateur">
       {user.displayName}
         <Avatar className='avatar' alt={user.displayName} src={user.photoURL} />

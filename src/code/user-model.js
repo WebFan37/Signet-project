@@ -18,7 +18,7 @@ import {doc, setDoc} from 'firebase/firestore';
  */
 export function connexion(){
     signInWithPopup(authentification, provider).then(
-        (u)=> console.log("User",u)
+        //(u)=> console.log("User",u)
     ).catch()
 }
 
